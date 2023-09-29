@@ -1,6 +1,4 @@
 {
-  "version": 2,
-  "name": "test1",
   "builds": [{ "src": "app.py", "use": "@vercel/python" }],
-  "routes": [{ "src": "/scrape_data", "dest": "app.py" }]
+  "routes": [{ "src": "/(.*)", "dest": "app.py" }]
 }
