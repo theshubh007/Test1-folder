@@ -1,5 +1,6 @@
 
 from flask import Flask, request, jsonify, render_template,json,current_app
+from flask_restful import Resource, Api
 import urllib.request
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -13,6 +14,7 @@ import urllib.parse
 
 
 app = Flask(__name__)
+api = Api(app)
 
 @app.route('/')
 def home():
@@ -186,7 +188,6 @@ def scrape_data():
         return jsonify({"error":str(e)})
  
     
-
 
 
 
