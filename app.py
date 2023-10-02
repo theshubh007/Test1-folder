@@ -51,29 +51,31 @@ def scrape_data():
         print("Linkdin page loaded................")
         print("entering credentials................")
        
-        current_url = driver.current_url
-        if "linkedin.com/feed/" in current_url:
-            # logged in
-            print("Already logged in")
-        else:
+        # current_url = driver.current_url
+        # if "linkedin.com/feed/" in current_url:
+        #     # logged in
+        #     print("Already logged in")
+        # else:
       
-            print("Not logged in")
+        #     print("Not logged in")
             
-            # Perform the login process here (similar to your existing code)
-            WebDriverWait(driver, 10).until(
-                EC.visibility_of_element_located((By.NAME, "session_key"))
-            )
-            username_field = driver.find_element("name", "session_key")
-            password_field = driver.find_element("name", "session_password")
-            # Wait for the username field to be visible
-            WebDriverWait(driver, 10).until(
-                EC.visibility_of(username_field)
-            )
+        #     # Perform the login process here (similar to your existing code)
+        #     WebDriverWait(driver, 10).until(
+        #         EC.visibility_of_element_located((By.NAME, "session_key"))
+        #     )
+        #     username_field = driver.find_element("name", "session_key")
+        #     password_field = driver.find_element("name", "session_password")
+        #     # Wait for the username field to be visible
+        #     WebDriverWait(driver, 10).until(
+        #         EC.visibility_of(username_field)
+        #     )
 
-            username_field.send_keys(username)
-            password_field.send_keys(password)
-            password_field.send_keys(Keys.RETURN)
-            time.sleep(5)  # Let the login complete 
+        #     username_field.send_keys(username)
+        #     password_field.send_keys(password)
+        #     password_field.send_keys(Keys.RETURN)
+        #     time.sleep(5)  # Let the login complete 
+        #     print("logged in successfully.................")
+        return jsonify({"message":"logged in successfully"})
     except Exception as e:
         if driver is not None:
             driver.quit()
